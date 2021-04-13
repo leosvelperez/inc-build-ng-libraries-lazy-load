@@ -40,7 +40,7 @@
       "prefix": "incrementalbuildlazyloading",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@nrwl/angular:webpack-browser",
           "options": {
             "outputPath": "dist/apps/foo",
             "index": "apps/foo/src/index.html",
@@ -83,9 +83,9 @@
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@nrwl/web:file-server",
           "options": {
-            "browserTarget": "foo:build"
+            "buildTarget": "foo:build"
           },
           "configurations": {
             "production": {
