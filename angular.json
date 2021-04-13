@@ -143,6 +143,80 @@
           }
         }
       }
+    },
+    "bar": {
+      "projectType": "library",
+      "root": "libs/bar",
+      "sourceRoot": "libs/bar/src",
+      "prefix": "incrementalbuildlazyloading",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "options": {
+            "tsConfig": "libs/bar/tsconfig.lib.json",
+            "project": "libs/bar/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/bar/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/bar/src/**/*.ts",
+              "libs/bar/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/bar"],
+          "options": {
+            "jestConfig": "libs/bar/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "baz": {
+      "projectType": "library",
+      "root": "libs/baz",
+      "sourceRoot": "libs/baz/src",
+      "prefix": "incrementalbuildlazyloading",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "options": {
+            "tsConfig": "libs/baz/tsconfig.lib.json",
+            "project": "libs/baz/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/baz/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/baz/src/**/*.ts",
+              "libs/baz/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/baz"],
+          "options": {
+            "jestConfig": "libs/baz/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }
